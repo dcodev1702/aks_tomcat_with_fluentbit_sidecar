@@ -39,5 +39,9 @@ Refresh web page a few times to generate some traffic and then validate via Log 
 
 ![Tomcat - Default WebApp](https://github.com/dcodev1702/aks_tomcat_with_fluentbit_sidecar/assets/32214072/ce94c1c0-5e52-491f-b381-b142c02b6350)
 
+Fluent-Bit sending Tomcat Access Log via STDOUT  <br />
+![Fluent-Bit sending Tomcat Access Log to STDOUT](https://github.com/dcodev1702/aks_tomcat_with_fluentbit_sidecar/assets/32214072/fa78c708-ed8e-4652-a166-4835468797be)
+
+Log Analytics -- ContainerLogV2 :: Tomcat Access Log parsed. <br />
 
 ![Tomcat Access Logs](https://github.com/dcodev1702/aks_tomcat_with_fluentbit_sidecar/assets/32214072/8b013a42-104b-4237-94f8-64905ffb2aae)
