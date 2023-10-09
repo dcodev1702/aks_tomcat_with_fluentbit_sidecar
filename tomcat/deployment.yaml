@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  tomcat-app
+  namespace: tomcat
+  labels:
+    name: tomcat-app
+    app: tomcat-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: tomcat-app
+      app: tomcat-app
+  template:
+    metadata:
+      name: tomcat-app
+      labels:
+        name: tomcat-app
+        app: tomcat-app
+    spec:
+      containers:
+        - name: tomcat-app
+          image: tomcat:11.0-jdk21-openjdk
+          imagePullPolicy: Always
+          env:
+          - name: FLAG
+            value: "ALL_YOUR_CATS_ARE_BELONG_TO_US"
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+          - name: log-storage
+            mountPath: /usr/local/tomcat/logs/
+        - name: fluent-bit
+          image: fluent/fluent-bit
+          imagePullPolicy: Always
+          env:
+          - name: FLAG
+            value: "ALL_BITS_ARE_SHIPPED_BY_US!"
+          volumeMounts:
+          - name: log-storage
+            mountPath: /mnt/log/
+            readOnly: true
+          - name: fluent-bit-config
+            mountPath: /fluent-bit/etc/
+            readOnly: true
+      terminationGracePeriodSeconds: 10
+      volumes:
+      - name: log-storage
+        emptyDir: {}
+      - name: fluent-bit-config
+        configMap:
+          name: fluent-bit-sidecar-config
