@@ -1,0 +1,18 @@
+//Modify this KQL query as needed to parse the Tomcat Access Log
+// -- /usr/local/tomcat/logs/localhost_access_log.2023-10-09.txt
+// -- this log gets mounted in /mnt/log/ in fluent-bit per the deployment.yaml (modify as you see fit)
+
+//SAMPLE FROM FLUENT-BIT OUTPUT (STDOUT)
+// [0] tomcatal: [1696818828.480643934, {}, {"log"=>"10.224.0.10 - - [09/Oct/2023:02:33:46 +0000] "GET / HTTP/1.1" 404 686"}]
+// [1] tomcatal: [1696818828.480675235, {}, {"log"=>"10.224.0.10 - - [09/Oct/2023:02:33:46 +0000] "GET /favicon.ico HTTP/1.1" 404 686"}]
+// [0] tomcatal: [1696818878.486668751, {}, {"log"=>"10.224.0.199 - - [09/Oct/2023:02:34:31 +0000] "GET / HTTP/1.1" 404 686"}]
+// [1] tomcatal: [1696818878.486680451, {}, {"log"=>"10.224.0.199 - - [09/Oct/2023:02:34:31 +0000] "GET / HTTP/1.1" 404 686"}]
+// [2] tomcatal: [1696818878.486687251, {}, {"log"=>"10.224.0.199 - - [09/Oct/2023:02:34:32 +0000] "GET / HTTP/1.1" 404 686"}]
+// [0] tomcatal: [1696818948.494228772, {}, {"log"=>"10.224.0.199 - - [09/Oct/2023:02:35:43 +0000] "GET / HTTP/1.1" 404 686"}]
+// [1] tomcatal: [1696818948.494242972, {}, {"log"=>"10.224.0.199 - - [09/Oct/2023:02:35:45 +0000] "GET / HTTP/1.1" 404 686"}]
+// [2] tomcatal: [1696818948.494248772, {}, {"log"=>"10.224.0.199 - - [09/Oct/2023:02:35:48 +0000] "GET / HTTP/1.1" 404 686"}]
+
+ContainerLogV2
+| where PodNamespace == 'tomcat' and ContainerName == 'fluent-bit' and LogMessage contains 'HTTP/1.1'
+| parse LogMessage with * ' {"log"=>"' AKSIP:string " - - [" OriginalDate:string ':' OriginalTime:string '] "' Method:string ' ' Data:string ' ' Protocol:string '" ' Status:string ' ' BytesSent:string'"}]'
+| project TimeGenerated, PodName, PodNamespace, ContainerName, AKSIP, OriginalDate, OriginalTime, Method, Data, Protocol, Status, BytesSent
