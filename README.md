@@ -33,4 +33,7 @@ exit  <br />
 
 Refresh web page a few times to generate some traffic and then validate via Log Analytics Workspace -> ContainerLogV2 <br />
 
+![Tomcat - Default WebApp](https://github.com/dcodev1702/aks_tomcat_with_fluentbit_sidecar/assets/32214072/ce94c1c0-5e52-491f-b381-b142c02b6350)
+
+
 ![Tomcat Access Logs](https://github.com/dcodev1702/aks_tomcat_with_fluentbit_sidecar/assets/32214072/8b013a42-104b-4237-94f8-64905ffb2aae)
