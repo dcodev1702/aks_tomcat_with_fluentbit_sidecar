@@ -1,0 +1,5 @@
+The value of the deployment will change but the command structure is sound.
+
+kubectl logs tomcat-app-79b8d549b6-xkhnb -n tomcat -c tomcat-app -f
+
+kubectl logs tomcat-app-79b8d549b6-xkhnb -n tomcat -c fluent-bit -f
