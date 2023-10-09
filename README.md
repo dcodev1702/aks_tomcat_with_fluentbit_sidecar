@@ -19,9 +19,9 @@ kubectl apply -f ./deployment.yaml
 kubectl apply -f ./loadbalancer.yaml
 ```
 
-Run bash ./getShell.sh
-cd webapps.dist
-cp -R * ../webapps/
-exit
+Run bash ./getShell.sh  <br />
+cd webapps.dist  <br />
+cp -R * ../webapps/  <br />
+exit  <br />
 
 Refresh web page a few times to generate some traffic and then validate via Log Analytics Workspace -> ContainerLogV2
