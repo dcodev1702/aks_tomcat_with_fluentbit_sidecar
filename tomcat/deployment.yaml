@@ -23,9 +23,6 @@ spec:
         - name: tomcat-app
           image: tomcat:11.0-jdk21-openjdk
           imagePullPolicy: Always
-          env:
-          - name: FLAG
-            value: "ALL_YOUR_CATS_ARE_BELONG_TO_US"
           ports:
             - containerPort: 8080
           volumeMounts:
@@ -34,9 +31,6 @@ spec:
         - name: fluent-bit
           image: fluent/fluent-bit
           imagePullPolicy: Always
-          env:
-          - name: FLAG
-            value: "ALL_BITS_ARE_SHIPPED_BY_US!"
           volumeMounts:
           - name: log-storage
             mountPath: /mnt/log/
