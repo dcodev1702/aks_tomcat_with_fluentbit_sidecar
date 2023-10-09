@@ -25,3 +25,4 @@ cp -R * ../webapps/  <br />
 exit  <br />
 
 Refresh web page a few times to generate some traffic and then validate via Log Analytics Workspace -> ContainerLogV2
+![Tomcat Access Logs](https://github.com/dcodev1702/aks_tomcat_with_fluentbit_sidecar/assets/32214072/8b013a42-104b-4237-94f8-64905ffb2aae)
