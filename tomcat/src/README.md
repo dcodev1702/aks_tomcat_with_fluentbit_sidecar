@@ -1,4 +1,4 @@
-## Modify logging.properties and use Dockerfile to copy the file to /usr/local/tomcat/conf
+## Modify logging.properties and use Dockerfile to update the tomcat container
 ![JSONLogging](https://github.com/dcodev1702/aks_tomcat_with_fluentbit_sidecar/assets/32214072/a601bcad-d073-48dc-a0d3-d18935999d06)
 
 ## Dockerfile:
