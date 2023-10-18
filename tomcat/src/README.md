@@ -18,4 +18,4 @@ docker push digitalkali/tomcat-openjdk11-app:latest
 ```
 
 ## Update deployment.yaml to reflect the location of your newly built container
-![image](https://github.com/dcodev1702/aks_tomcat_with_fluentbit_sidecar/assets/32214072/ebe1e940-a4bd-48c2-95ff-d61a1e437a5b)
+![image](https://github.com/dcodev1702/aks_tomcat_with_fluentbit_sidecar/assets/32214072/fe9c81d4-0ea0-41fc-b946-216feb0cfc53)
