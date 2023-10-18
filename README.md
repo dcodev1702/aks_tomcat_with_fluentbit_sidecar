@@ -21,16 +21,6 @@ kubectl apply -f ./loadbalancer.yaml
 ```
 
 ```console
-bash ./getShell.sh
-```
-
-```console
-cd webapps.dist
-cp -R * ../webapps/
-exit
-```
-
-```console
 kubectl get services -n tomcat
 ```
 ![http://20.75.166.182](https://github.com/dcodev1702/aks_tomcat_with_fluentbit_sidecar/assets/32214072/bf00a9ff-ad52-4b71-aecf-596007ca58c1)
